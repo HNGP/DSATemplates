@@ -10,7 +10,7 @@ void DFSUntil(int i,int *visited, int *G, int n)
             DFSUntil(j,visited,G,n);
 }
 
-int countComponents(int *visited, int *G,int n) 
+int countComponents(int *visited, int *G,int n)
 {
     int count=0;
     for(int i=0;i<n;i++)
@@ -40,7 +40,7 @@ int main()
     for(int i=0;i<n;i++)
         visited[i]=-1;
 
-    int count = countComponents(visited, (int *)G,n); 
+    int count = countComponents(visited, (int *)G,n);
     printf("%d",count);
 
     return 0;
@@ -59,7 +59,7 @@ void DFSUntil(int i,int *visited, int *G, int n)
             DFSUntil(j,visited,G,n);
 }
 
-void dfs(int *visited, int *G,int n) 
+void dfs(int *visited, int *G,int n)
 {
     for(int i=0;i<n;i++)
         visited[i]=-1;
@@ -80,7 +80,7 @@ int main()
             scanf("%d",&G[i][j]);
     }
 
-    dfs(visited, (int *)G,n); 
+    dfs(visited, (int *)G,n);
 
     return 0;
 }
@@ -92,86 +92,52 @@ int a[20][20], q[20], visited[20], n, i, j, f = 0, r = -1;
 
 
 
-void bfs(int v) {
-
- for(i = 1; i <= n; i++)
-
- if(a[v][i] && !visited[i])
-
- q[++r] = i;
-
- if(f <= r) {
-
- visited[q[f]] = 1;
-
- bfs(q[f++]);
-
- }
-
+void bfs(int v)
+{
+    for(i = 1; i <= n; i++)
+    if(a[v][i] && !visited[i])
+    q[++r] = i;
+    if (f <= r)
+    {
+        visited[q[f]] = 1;
+        bfs(q[f++]);
+    }
 }
 
 
 
-void main() {
-
- int v;
-
- printf("\n Enter the number of vertices:");
-
- scanf("%d", &n);
-
- 
-
- for(i=1; i <= n; i++) {
-
- q[i] = 0;
-
- visited[i] = 0;
-
- }
-
- 
-
- printf("\n Enter graph data in matrix form:\n");
-
- for(i=1; i<=n; i++) {
-
- for(j=1;j<=n;j++) {
-
- scanf("%d", &a[i][j]);
-
- }
-
- }
-
- 
-
- printf("\n Enter the starting vertex:");
-
- scanf("%d", &v);
-
- bfs(v);
-
- printf("\n The node which are reachable are:\n");
-
- 
-
- for(i=1; i <= n; i++) {
-
- if(visited[i])
-
- printf("%d\t", i);
-
- else {
-
- printf("\n Bfs is not possible. Not all nodes are reachable");
-
- break;
-
- }
-
- }
-
+void main()
+{
+    int v;
+    printf("\n Enter the number of vertices:");
+    scanf("%d", &n);
+    for(i=1; i <= n; i++)
+    {
+        q[i] = 0;
+        visited[i] = 0;
+    }
+    printf("\n Enter graph data in matrix form:\n");
+    for(i=1; i<=n; i++)
+    {
+        for(j=1;j<=n;j++)
+        {
+            scanf("%d", &a[i][j]);
+        }
+    }
+    printf("\n Enter the starting vertex:");
+    scanf("%d", &v);
+    bfs(v);
+    printf("\n The node which are reachable are:\n");
+    for(i=1; i <= n; i++)
+    {
+        if(visited[i])
+            printf("%d\t", i);
+        else
+        {
+            printf("\n Bfs is not possible. Not all nodes are reachable");
+            break;
+        }
+    }
 }
 
 

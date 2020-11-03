@@ -34,7 +34,7 @@ int mergeSort(int a[],int n,int k)
             return -1;
     }
     int mid = n/2;
-    int left[mid],int right[n-mid];
+    int left[mid], right[n-mid];
     int i;
     for(i=0;i<mid;i++)
     {
